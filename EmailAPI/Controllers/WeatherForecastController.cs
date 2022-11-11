@@ -40,21 +40,6 @@ namespace EmailAPI.Controllers
             .ToArray();
         }
 
-        [HttpGet("GetEmail")]
-        public IEnumerable<WeatherForecast> GetEmail()
-        {
-            var rng = new Random();
-            var message = new Message(new string[] { "chamathran@gmail.com" }, "Test email", "This is the content from our email.");
-
-            _emailSender.SendEmail(message);
-
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+        
     }
 }
